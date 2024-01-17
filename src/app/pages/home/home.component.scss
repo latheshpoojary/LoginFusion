@@ -1,0 +1,100 @@
+header {
+  width: 100%;
+  height: 100px;
+  background-color: antiquewhite;
+}
+
+// .conatiner {
+//   width: 100%;
+//   // height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   padding: 1rem;
+//   .card-conatiner {
+//     width: 100%;
+//     height: fit-content;
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+//     grid-gap: 20px;
+//     align-items: stretch;
+//     .card {
+//       // padding: .5rem;
+//       // border: 1px solid grey;
+//       border-radius: 8px;
+//       // border: 2px solid #DDEBF7;
+//       padding: 2rem;
+//       &:hover {
+//         transform: scale(1.02);
+//       }
+//       img {
+//         width: 300px;
+//         height: 300px;
+//         border: none;
+//         // border: 1px solid beige;
+//       }
+//       .content {
+//         padding: 0 0.5rem;
+//         color: #00a6ca;
+//         & > p {
+//           font-size: 20px;
+//           font-weight: 600;
+//           letter-spacing: 2px;
+//           line-height: 30px;
+//         }
+//         .desc {
+//           display: flex;
+//         }
+//       }
+//     }
+//   }
+// }
+.grid { 
+  // background-color:rgba(192, 189, 189, 0.377) ;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+	padding: 1rem;
+  
+
+  }
+.grid > article {
+  // border: 1px solid #ccc;
+  // box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  outline: 2px solid rgba(220,220,220,.2);
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  padding: 1rem;
+	// filter: drop-shadow(10px 10px 20px  #000);
+  &:hover{
+    outline: 2px solid grey;
+  }
+  .image-preview{
+    width: 100%;
+    overflow: hidden;
+  }
+
+}
+
+.grid > article img {
+  width: 100%;
+  height:200px ;
+	// aspect-ratio: 1/1;
+  border-radius: 8px;
+  transition: all .5s ease;
+  &:hover{
+    transform:translate3d(0%, -10%, 100px)  scale(1.1);
+  }
+
+}
+.text {
+  // padding: 0 20px 20px;
+  text-transform: capitalize;
+}
+.text > button {
+  background: gray;
+  border: 0;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  }

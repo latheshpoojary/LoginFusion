@@ -1,0 +1,126 @@
+<div class="container mx-auto">
+  <div class="form-wrapper">
+    <div class="login-container" [class.drop]="drop">
+      <div class="login-message">
+        <h1>Hello.</h1>
+        <h2>Welcome back</h2>
+      </div>
+      <div class="login-credential">
+        <form class="field" [formGroup]="signInForm"  (ngSubmit)="onSubmit()">
+          <div class="field">
+            <label>Email</label>
+            <div class="input-field">
+              <input type="text" placeholder="Enter email" formControlName="email"/>
+              <i class="bx bx-envelope"></i>
+            </div>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <div class="input-field align-middle">
+              <input [type]="hide ? 'password' : 'text'" placeholder="Enter password" formControlName="password"/>
+              <i class="bx bx-lock-alt"></i>
+              <!-- <button type="button"  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="absolute right-0 top-1/2 -translate-x-2/4 -translate-y-2/4 ">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button> -->
+            </div>
+            <div class="flex bg-orange-100 items-center rounded-md p-2" *ngIf="signInpassword?.invalid">
+              <i class='bx bx-info-circle mr-3 text-lg '></i>
+              <!-- <p class="m-0">Password must contain at least 1 lowercase,uppercase letter,1 digit and be at least 8 characters long</p> -->
+
+            </div>
+          </div>
+          <div class="login-forgot" routerLink="/forgot">
+            <a>Forgot password?</a>
+          </div>
+          <div class="login-button">
+            <button [disabled]="signInForm.invalid">Sign In</button>
+          </div>
+        </form>
+
+        <div class="login-options">
+          <div class="message">
+            <p>Or Continue With</p>
+          </div>
+          <div class="socila-media">
+            <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
+           
+          </div>
+        </div>
+        <footer>
+          <p (click)="drop = !drop">
+            Don't have an account? <a  (click)="resetForm('signUp')" style="cursor: pointer;">Sign up</a>
+          </p>
+        </footer>
+      </div>
+    </div>
+    <div class="register-form" [class.drop]="!drop">
+      <div class="login-message">
+        <h1>Sign Up</h1>
+      </div>
+      <div class="login-credential">
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+          <div class="field" formGroupName="name">
+            <div class="input-field">
+              <label for="">First Name</label>
+              <input type="text" placeholder="Enter first name" formControlName="fName" class="mt-2"/>
+            </div>
+            <div class="input-field">
+              <label for="">Last Name</label>
+              <input type="text" placeholder="Enter last name" formControlName="lName" class="mt-2"/>
+            </div>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <div class="input-field">
+              <input type="text" placeholder="Enter email" formControlName="email"/>
+              <i class="bx bx-envelope"></i>
+            </div>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <div class="input-field align-middle">
+              <input [type]="hide ? 'password' : 'text'" placeholder="Enter password" formControlName="password"/>  
+              <i class="bx bx-lock-alt"></i>
+              <!-- <button type="button"  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="absolute right-0 top-1/2 -translate-x-2/4 -translate-y-2/4 ">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button> -->
+            </div>
+            <div class="flex bg-orange-100 items-center rounded-md p-2" *ngIf="signUpPassword?.invalid">
+              <i class='bx bx-info-circle mr-3 text-lg'></i>
+              <!-- <p class="m-0">Password must contain at least 1 lowercase,uppercase letter,1 digit and be at least 8 characters long</p> -->
+
+            </div>
+          </div>
+          <div class="login-button">
+            <button [disabled]="signUpForm.invalid">Sign Up</button>
+          </div>
+        </form>
+      </div>
+
+    
+      <footer>
+        <p (click)="drop = !drop">
+          Already have an account? <a href="#" (click)="resetForm('signIn')">Sign in</a>
+        </p>
+      </footer>
+      <div class="login-options">
+        <div class="message">
+          <p>Or Continue With</p>
+        </div>
+        <div class="socila-media">
+          <!-- <i class="bx bxl-google"></i> -->
+          <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
+          <i class="bx bxl-facebook-circle"></i>
+          <i class="bx bxl-windows"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- api loader -->
+<ngx-loading
+    [show]="loading"
+    [config]="{ backdropBorderRadius: '3px' }"
+  ></ngx-loading>

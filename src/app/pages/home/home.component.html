@@ -1,0 +1,35 @@
+<header>
+
+</header>
+<button (click)="onUpload()">Upload</button>
+<!-- <div class="conatiner">
+	<div class="card-conatiner">
+		<div *ngFor="let character of animeList" class="card">
+			<div class="image-conatiner">
+				<img src="{{character.imageUrl}}" alt="">
+			</div>
+			<div class="content">
+				<p>{{character.name}}</p>
+				<div class="desc">
+					<p>Skill :</p>
+					<p>{{character.skill}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div> -->
+<main class="grid">
+  <article *ngFor="let character of animeList">
+    <div class="image-preview">
+			<img [src]="character.imageUrl" alt="Sample photo" (click)="download(character.imageUrl,character.name)">
+		</div>
+    <div class="text">
+      <h3>{{character.name}}</h3>
+      <p>{{character.skill}}</p>
+      
+    </div>
+  </article>
+ 
+</main>
+

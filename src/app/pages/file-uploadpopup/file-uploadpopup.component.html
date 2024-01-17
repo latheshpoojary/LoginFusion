@@ -1,0 +1,28 @@
+<div class="login-credential">
+	<form class="field"[formGroup]="chatacterForm">
+		<div class="field">
+			<label>Character Name</label>
+			<div class="input-field">
+				<input type="text" placeholder="Enter Name" formControlName="name"/>
+			</div>
+		</div>
+		<div class="field">
+			<label>Skill</label>
+			<div class="input-field align-middle">
+				<input  placeholder="Enter Skill" formControlName="skill"/>
+			</div>
+		</div>
+		<ngx-dropzone (change)="onSelect($event)" class="draganddrop">
+			<ngx-dropzone-label>Drag and Drop Anime Image</ngx-dropzone-label>
+			<ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+				<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+			</ngx-dropzone-preview>
+			
+		</ngx-dropzone>
+		<div class="login-button">
+			<button type="button" (click)="onUpload()" >Upload File <span class="loader ms-1" *ngIf="loading"></span></button>
+		</div>
+	</form>
+
+	
+</div>
