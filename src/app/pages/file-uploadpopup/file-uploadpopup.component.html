@@ -1,15 +1,35 @@
 <div class="login-credential">
 	<form class="field"[formGroup]="chatacterForm">
 		<div class="field">
-			<label>Character Name</label>
+			<label>Name</label>
 			<div class="input-field">
 				<input type="text" placeholder="Enter Name" formControlName="name"/>
 			</div>
 		</div>
 		<div class="field">
-			<label>Skill</label>
+			<label>Alias Name</label>
 			<div class="input-field align-middle">
-				<input  placeholder="Enter Skill" formControlName="skill"/>
+				<input  placeholder="Enter Skill" formControlName="alias_name"/>
+			</div>
+		</div>
+		
+		<div class="field">
+			<label>Anime Series</label>
+			<div class="input-field align-middle">
+				<input  placeholder="Enter Skill" formControlName="series"/>
+			</div>
+		</div>
+		<div class="field">
+			<label>Ability</label>
+			<div class="input-field align-middle">
+				<input  placeholder="Enter Skill" formControlName="ability"/>
+			</div>
+		</div>
+		
+		<div class="field">
+			<label>Rating</label>
+			<div class="input-field align-middle">
+				<input type="number" min="1" max="10" placeholder="Enter Skill" formControlName="rate"/>
 			</div>
 		</div>
 		<ngx-dropzone (change)="onSelect($event)" class="draganddrop">

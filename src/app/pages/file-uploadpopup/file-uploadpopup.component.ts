@@ -18,7 +18,10 @@ export class FileUploadpopupComponent {
   constructor(private homeService:HomeService,private fb:FormBuilder,private http:HttpClient,private dialog:DialogRef) {
     this.chatacterForm = this.fb.group({
       name: ['', [Validators.required]],
-      skill: ['', [Validators.required]],
+      alias_name: ['', [Validators.required]],
+      series:['',[Validators.required]],
+      ability: ['', [Validators.required]],
+      rate: ['', [Validators.required,Validators.max(10)]]
     })
   }
 
@@ -53,7 +56,10 @@ export class FileUploadpopupComponent {
             const body = {
               "imageUrl":res.url,
               name: this.chatacterForm.value.name,
-              skill:this.chatacterForm.value.skill
+              alias_name: this.chatacterForm.value.alias_name,
+              series: this.chatacterForm.value.series,
+              ability: this.chatacterForm.value.ability,
+              rate:this.chatacterForm.value.rate
             }
             console.log(body);
             
